@@ -3,7 +3,7 @@ Run Cron Jobs via Python
 
 * Kinesis invokes lambdas too often, make sure lambda deliver messages only once,
 
-...There are two cases where duplicates can happens in Kinesis,
+There are two cases where duplicates can happens in Kinesis,
 
 1. Producer
 ..* Here data producer may try to write the same message to Kinesis more than one, this is due to Kinesis network issue or producer couldn't get the success response. This can rarely happens and very low compared to consumer related duplicates
