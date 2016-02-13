@@ -1,17 +1,19 @@
 {
-    "ec2": {
-        "filters": [
-            {
-                "Name": "tag:ENV",
-                "Values": [
-                    "ci"
-                ]
+    "trigger": {
+        "ec2": {
+            "filters": [
+                {
+                    "Name": "tag:ENV",
+                    "Values": [
+                        "ci"
+                    ]
+                }
+            ]
+        },
+        "lambda": {
+            "function": {
+                "name": "worker"
             }
-        ]
-    },
-    "lambda": {
-        "function": {
-            "name": "worker_function"
         }
     }
 }

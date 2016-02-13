@@ -4,11 +4,11 @@ import json
 with open('config/config.json') as config:
     data = json.load(config)
 
-def trigger_handler(event, context):
+def trigger(event, context):
     # Get IP addresses of EC2 instances
     ec2 = boto3.client('ec2')
     instDict = ec2.describe_instances(
-            Filters = data['ec2']['filters']
+            Filters = data['trigger']['ec2']['filters']
         )
 
     hostList = []
@@ -22,7 +22,7 @@ def trigger_handler(event, context):
     for host in hostList:
         print "Invoking worker_function on " + host
         invokeResponse = awsLamba.invoke(
-            FunctionName = data['lambda']['function']['name'],
+            FunctionName = data['trigger']['lambda']['function']['name'],
             InvocationType = 'Event',
             LogType = 'Tail',
             Payload = '{"IP":"'+ host +'"}'
