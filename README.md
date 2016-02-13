@@ -6,7 +6,8 @@ Run Cron Jobs via Python
 There are two cases where duplicates can happens in Kinesis,
 
 1. Producer
-..* Here data producer may try to write the same message to Kinesis more than one, this is due to Kinesis network issue or producer couldn't get the success response. This can rarely happens and very low compared to consumer related duplicates
+
+- Here data producer may try to write the same message to Kinesis more than one, this is due to Kinesis network issue or producer couldn't get the success response. This can rarely happens and very low compared to consumer related duplicates
 
 2. Consumer
 ..* There are 4 instances where record processor receive more than one
